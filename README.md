@@ -4,11 +4,11 @@
 | --------------------- | ------- | ------------------------- |
 | nickname              | string  | null: false               |
 | email                 | string  | null: false, unique: true |
-| kanji_name            | string  | null: false               |
-| kana_name             | string  | null: false               |
-| birth_year_id         | integer | null: false               |
-| birth_month_id        | integer | null: false               |
-| birth_day_id          | integer | null: false               |
+| kanji_family_name     | string  | null: false               |
+| kanji_first_name      | string  | null: false               |
+| kana_family_name      | string  | null: false               |
+| kana_first_name       | string  | null: false               |
+| birthday_id           | date    | null: false               |
 | encrypted_password    | string  | null: false               |
 
 ### association
@@ -35,7 +35,6 @@
 ## orders
 | column      | type       | options                        |
 | ----------- | ---------- | ------------------------------ |
-| item_user   | references | null: false, foreign_key: true |
 | item        | references | null: false, foreign_key: true |
 | user        | references | null: false, foreign_key: true |
 
@@ -50,7 +49,7 @@
 | building      | string     |                                |
 | house_number  | string     | null: false                    |
 | city-town     | string     | null: false                    |
-| prefecture_id | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | postal_code   | string     | null: false                    |
 | phone_number  | string     | null: false                    |
 | order         | references | null: false, foreign_key: true |
