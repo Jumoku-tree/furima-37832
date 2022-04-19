@@ -1,15 +1,15 @@
 # DB設計
 ## users
-| column                | type     | options                   |
-| --------------------- | -------- | ------------------------- |
-| nickname              | string   | null: false               |
-| kanji_family_name     | string   | null: false               |
-| kanji_first_name      | string   | null: false               |
-| kana_family_name      | string   | null: false               |
-| kana_first_name       | string   | null: false               |
-| birthday              | datetime | null: false               |
-| email                 | string   | null: false, unique: true |
-| encrypted_password    | string   | null: false               |
+| column                | type   | options                   |
+| --------------------- | ------ | ------------------------- |
+| nickname              | string | null: false               |
+| kanji_family_name     | string | null: false               |
+| kanji_first_name      | string | null: false               |
+| kana_family_name      | string | null: false               |
+| kana_first_name       | string | null: false               |
+| birthday              | date   | null: false               |
+| email                 | string | null: false, unique: true |
+| encrypted_password    | string | null: false               |
 
 ### association
 - has_many :items

@@ -113,6 +113,42 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
 
+    # ↓プルリクエスト追加分↓
+    it 'すべての項目が入力されていれば登録できる' do
+      @user.valid?
+      expect(@user).to be_valid
+    end
+
+    it '重複したメールアドレスは登録できない' do
+      @user.save
+      another = FactoryBot.build(:user)
+      another.email = @user.email
+      another.valid?
+      expect(another.errors.full_messages).to include('Email has already been taken')
+
+    end
+
+    it '全角文字を含むパスワードは登録できない' do
+      @user.password = 'aa11ぱす'
+      @user.password_confirmation = @user.password
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Password must include both alphabet and number')
+    end
+
+    it 'kanji_family_nameに半角文字が含まれていると登録できない' do
+      @user.kanji_family_name = 'iida'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Kanji family name must be 2-byte hiragana, katakana, or kanji')
+    end
+
+    it 'kanji_first_nameに半角文字が含まれていると登録できない' do
+      @user.kanji_first_name = 'tenya'
+      @user.valid?
+      expect(@user.errors.full_messages).to include('Kanji first name must be 2-byte hiragana, katakana, or kanji')
+
+    end
+
+
   end
 
 end

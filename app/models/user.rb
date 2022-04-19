@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
-  validates :kanji_family_name, presence: true
-  validates :kanji_first_name, presence: true
-  with_options presence: true, format: {with: /\A[ァ-ヶ]+\z/, message: 'must be 2-byte katakana' } do
+  with_options presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'must be 2-byte hiragana, katakana, or kanji'} do
+    validates :kanji_family_name
+    validates :kanji_first_name
+  end
+  with_options presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: 'must be 2-byte katakana' } do
     validates :kana_family_name
     validates :kana_first_name 
   end
