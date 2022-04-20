@@ -17,4 +17,6 @@ class User < ApplicationRecord
 
   PASSWORD_CHAR = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,}+\z/.freeze
   validates_format_of :password, with: PASSWORD_CHAR, message: 'must include both alphabet and number'
+
+  has_many :items
 end
