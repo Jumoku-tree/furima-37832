@@ -3,7 +3,6 @@ class Item < ApplicationRecord
     validates :image
     validates :title
     validates :about
-    validates :user
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
                               message: 'must be 1-byte number from 300 to 9,999,999 ' }

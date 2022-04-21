@@ -3,7 +3,6 @@ FactoryBot.define do
     title           {'aa'}
     about           {'aa'}
     price           {Faker::Number.within(range: 300..9999999)}
-    image           {Faker::Lorem.sentence}
     category_id     { rand(2..11) }
     charge_id          { rand(2..3) }
     condition_id       { rand(2..7) }

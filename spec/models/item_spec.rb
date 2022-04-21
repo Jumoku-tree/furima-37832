@@ -30,27 +30,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("About can't be blank")
       end
       it 'カテゴリーが空では登録できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品の状態が空では登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it '配送料の負担が空では登録できない' do
-        @item.charge_id = ''
+        @item.charge_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Charge can't be blank")
       end
       it '発送元の地域が空では登録できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数が空では登録できない' do
-        @item.till_id = ''
+        @item.till_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Till can't be blank")
       end
@@ -73,6 +73,12 @@ RSpec.describe Item, type: :model do
         @item.price = Faker::Number.between(from: 10000000)
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be 1-byte number from 300 to 9,999,999 ")
+      end
+
+      it 'userが紐づいていなければ出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
 
