@@ -6,7 +6,6 @@ RSpec.describe Item, type: :model do
   end
 
   describe '商品出品' do
-    binding.pry
     context '商品の出品ができるとき' do
       it 'すべての項目が入力されていれば登録できる' do
         @item.valid?

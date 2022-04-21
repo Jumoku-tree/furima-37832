@@ -4,11 +4,11 @@ FactoryBot.define do
     about           {'aa'}
     price           {Faker::Number.within(range: 300..9999999)}
     image           {Faker::Lorem.sentence}
-    category_id     { 3 }
-    charge_id          { 3 }
-    condition_id       { 3 }
-    prefecture_id      { 3 }
-    till_id            { 3 }
+    category_id     { rand(2..11) }
+    charge_id          { rand(2..3) }
+    condition_id       { rand(2..7) }
+    prefecture_id      { rand(7..48) }
+    till_id            { rand(2..4) }
 
     association :user
 
