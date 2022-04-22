@@ -57,30 +57,29 @@ RSpec.describe Item, type: :model do
       it '価格が空では登録できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be 1-byte number from 300 to 9,999,999 ")
+        expect(@item.errors.full_messages).to include('Price must be 1-byte number from 300 to 9,999,999 ')
       end
       it '価格が全角文字では登録できない' do
         @item.price = 'わあお！'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be 1-byte number from 300 to 9,999,999 ")
+        expect(@item.errors.full_messages).to include('Price must be 1-byte number from 300 to 9,999,999 ')
       end
       it '価格が299円以下では登録できない' do
         @item.price = Faker::Number.within(range: 1..299)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be 1-byte number from 300 to 9,999,999 ")
+        expect(@item.errors.full_messages).to include('Price must be 1-byte number from 300 to 9,999,999 ')
       end
       it '価格が10000000以上では登録できない' do
-        @item.price = Faker::Number.between(from: 10000000)
+        @item.price = Faker::Number.between(from: 10_000_000)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be 1-byte number from 300 to 9,999,999 ")
+        expect(@item.errors.full_messages).to include('Price must be 1-byte number from 300 to 9,999,999 ')
       end
 
       it 'userが紐づいていなければ出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
-
   end
 end
