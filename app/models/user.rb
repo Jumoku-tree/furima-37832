@@ -19,4 +19,5 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_CHAR, message: 'must include both alphabet and number'
 
   has_many :items
+  has_many :orders
 end

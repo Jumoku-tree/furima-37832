@@ -48,7 +48,7 @@
 | ------------- | ---------- | ------------------------------ |
 | building      | string     |                                |
 | house_number  | string     | null: false                    |
-| city-town     | string     | null: false                    |
+| municipality  | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | postal_code   | string     | null: false                    |
 | phone_number  | string     | null: false                    |
