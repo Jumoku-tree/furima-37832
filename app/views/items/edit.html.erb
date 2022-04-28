@@ -11,7 +11,6 @@ app/assets/stylesheets/items/new.css %>
 
     <%= render 'shared/error_messages', model: @item %>
 
-    <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
         商品画像
@@ -24,8 +23,6 @@ app/assets/stylesheets/items/new.css %>
         <%= f.file_field :hoge, id:"item-image" %>
       </div>
     </div>
-    <%# /商品画像 %>
-    <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
         商品名
@@ -40,9 +37,7 @@ app/assets/stylesheets/items/new.css %>
         <%= f.text_area :about, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
 
-    <%# 商品の詳細 %>
     <div class="items-detail">
       <div class="weight-bold-text">商品の詳細</div>
       <div class="form">
@@ -58,9 +53,7 @@ app/assets/stylesheets/items/new.css %>
         <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
-    <%# /商品の詳細 %>
 
-    <%# 配送について %>
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>
@@ -84,9 +77,7 @@ app/assets/stylesheets/items/new.css %>
         <%= f.collection_select(:till_id, Till.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
-    <%# /配送について %>
 
-    <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
         <span>販売価格<br>(¥300〜9,999,999)</span>
@@ -135,13 +126,10 @@ app/assets/stylesheets/items/new.css %>
         に同意したことになります。
       </p>
     </div>
-    <%# /注意書き %>
-    <%# 下部ボタン %>
     <div class="sell-btn-contents">
       <%= f.submit "変更する" ,class:"sell-btn" %>
       <%=link_to 'もどる', item_path(@item.id), class:"back-btn" %>
     </div>
-    <%# /下部ボタン %>
   </div>
   <% end %>
 
