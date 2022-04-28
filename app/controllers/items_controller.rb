@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('created_at DESC')
+    @cnt = Item.count
   end
 
   def new
