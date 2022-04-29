@@ -243,6 +243,7 @@
 
 .preview{
   width: 300px;
+  height: 300px;
   text-align: center;
 }
 
@@ -251,4 +252,11 @@
   text-align: center;
   margin-right: 25px;
   display: block;
+}
+
+.resize-caution{
+  position: relative;
+  margin: 30px 0;
+  width: 100%;
+  text-align: center;
 }
