@@ -236,19 +236,27 @@
 }
 
 .preview-text {
-  width: 500px;
+  width: 300px;
   margin-right: 25px;
   text-align: center;
 }
 
 .preview{
-  width: 500px;
+  width: 300px;
+  height: 300px;
   text-align: center;
 }
 
 .preview-img{
-  width: 500px;
+  width: 300px;
   text-align: center;
   margin-right: 25px;
   display: block;
+}
+
+.resize-caution{
+  position: relative;
+  margin: 30px 0;
+  width: 100%;
+  text-align: center;
 }
