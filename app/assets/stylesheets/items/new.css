@@ -227,3 +227,28 @@
 .inc {
   font-size: 13px;
 }
+
+/* 追加 */
+
+.img-view{
+  display: flex;
+  align-items: center;
+}
+
+.preview-text {
+  width: 500px;
+  margin-right: 25px;
+  text-align: center;
+}
+
+.preview{
+  width: 500px;
+  text-align: center;
+}
+
+.preview-img{
+  width: 500px;
+  text-align: center;
+  margin-right: 25px;
+  display: block;
+}
